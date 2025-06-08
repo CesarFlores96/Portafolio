@@ -1,13 +1,13 @@
-# Welcome to My Portfolio 👋
+# Bienvenido a mi Portfolio 👋
 
-## About Me
+## Sobre Mí
 
 Soy un entusiasta del desarrollo de software con experiencia en
 la creación de soluciones robustas y eficientes, especialmente
 en el backend con C# y Python, y en la construcción de
 interfaces interactivas con Vue.js y JavaScript..
 
-## Skills
+## Habilidades
 
 - Lenguajes de Programación: C#, Python, JavaScript 
 - Frameworks: Vue.js, Django
@@ -15,6 +15,6 @@ interfaces interactivas con Vue.js y JavaScript..
 - Herramientas y Otros: Git,  Postman
 
 
-## Contact
+## Contacto
 
 - Email: cesarfmiranda0@gmail.com
