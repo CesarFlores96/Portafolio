@@ -3,156 +3,405 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portafolio de Cesar Flores, ingeniero de sistemas especializado en aplicaciones empresariales, GIS, APIs y automatización con IA." />
-    <title>Cesar Flores | Software Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=20260711-2" />
+    <meta
+      name="description"
+      content="Portafolio interactivo de Cesar Flores: desarrollo empresarial, automatización, chatbots, agentes con IA, Python, APIs y plataformas de datos."
+    />
+    <meta name="theme-color" content="#12182d" />
+    <title>Cesar Flores | Software, IA y Automatización</title>
+    <link rel="stylesheet" href="./styles.css?v=20260711-macos-ai" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="#inicio" aria-label="Ir al inicio">CF<span>.</span></a>
-      <nav aria-label="Navegación principal">
-        <a href="#proyectos">Proyectos</a>
-        <a href="#experiencia">Cómo trabajo</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-      <a class="header-cta" href="mailto:cesarfmiranda0@gmail.com">Conversemos</a>
-    </header>
+    <div class="desktop" id="desktop">
+      <div class="wallpaper-glow glow-one"></div>
+      <div class="wallpaper-glow glow-two"></div>
+      <div class="wallpaper-grid" aria-hidden="true"></div>
 
-    <main>
-      <section class="hero section" id="inicio">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Ingeniero de Sistemas · Lima, Perú</p>
-          <h1>Construyo software que conecta <span>operaciones, datos y decisiones.</span></h1>
-          <p class="hero-text">
-            Desarrollo aplicaciones empresariales, plataformas GIS y automatizaciones con IA usando C#, Vue, FastAPI, PostgreSQL y Supabase. Mi enfoque no es llenar pantallas: es resolver procesos complejos con sistemas claros, auditables y mantenibles.
+      <header class="menu-bar" aria-label="Barra de menú del portafolio">
+        <div class="menu-left">
+          <button class="menu-trigger brand-menu" type="button" data-menu="portfolio-menu" aria-expanded="false">
+            <span class="brand-mark">CF</span>
+          </button>
+          <button class="menu-trigger active-app" type="button" data-menu="portfolio-menu" aria-expanded="false">
+            Cesar Flores
+          </button>
+          <button class="menu-trigger" type="button" data-menu="file-menu" aria-expanded="false">Archivo</button>
+          <button class="menu-trigger" type="button" data-menu="view-menu" aria-expanded="false">Ver</button>
+          <button class="menu-trigger" type="button" data-menu="help-menu" aria-expanded="false">Ayuda</button>
+        </div>
+        <div class="menu-right">
+          <button class="status-pill" type="button" data-open="contact">Disponible para proyectos</button>
+          <span class="menu-status" aria-hidden="true">◔</span>
+          <span class="menu-status" aria-hidden="true">⌁</span>
+          <time id="menu-clock">--:--</time>
+        </div>
+      </header>
+
+      <div class="menu-popover" id="portfolio-menu" role="menu">
+        <button type="button" data-open="about">Acerca de Cesar</button>
+        <button type="button" data-open="contact">Información de contacto</button>
+        <div class="menu-separator"></div>
+        <a href="https://github.com/CesarFlores96" target="_blank" rel="noreferrer">Abrir GitHub</a>
+      </div>
+      <div class="menu-popover" id="file-menu" role="menu">
+        <button type="button" data-open="projects">Abrir Proyectos</button>
+        <button type="button" data-open="ai">Abrir IA & Automatización</button>
+        <button type="button" data-open="stack">Abrir Stack técnico</button>
+        <div class="menu-separator"></div>
+        <button type="button" data-open="contact">Nuevo contacto…</button>
+      </div>
+      <div class="menu-popover" id="view-menu" role="menu">
+        <button type="button" data-action="show-all">Mostrar todas las ventanas</button>
+        <button type="button" data-action="minimize-all">Minimizar todo</button>
+        <button type="button" data-action="close-all">Cerrar todo</button>
+      </div>
+      <div class="menu-popover" id="help-menu" role="menu">
+        <button type="button" data-open="about">¿Qué construye Cesar?</button>
+        <button type="button" data-open="ai">Ver enfoque actual en IA</button>
+        <button type="button" data-open="contact">Contactar</button>
+      </div>
+
+      <main class="desktop-area" aria-label="Escritorio interactivo">
+        <div class="desktop-icons" aria-label="Accesos del escritorio">
+          <button class="desktop-icon" type="button" data-open="projects">
+            <span class="desktop-icon-art folder-icon" aria-hidden="true"></span>
+            <span>Proyectos</span>
+          </button>
+          <button class="desktop-icon" type="button" data-open="ai">
+            <span class="desktop-icon-art ai-file-icon" aria-hidden="true">AI</span>
+            <span>IA Lab</span>
+          </button>
+          <button class="desktop-icon" type="button" data-open="stack">
+            <span class="desktop-icon-art terminal-file-icon" aria-hidden="true">›_</span>
+            <span>Stack</span>
+          </button>
+        </div>
+
+        <section class="desktop-welcome" aria-label="Presentación principal">
+          <p class="welcome-kicker">PORTAFOLIO INTERACTIVO · LIMA, PERÚ</p>
+          <h1>Software empresarial,<br /><span>automatización e IA aplicada.</span></h1>
+          <p>
+            Diseño soluciones que conectan procesos, datos y modelos de inteligencia artificial. Mi trabajo reciente se concentra en automatizaciones con Python, chatbots contextuales, agentes con herramientas, APIs y sistemas auditables que convierten tareas repetitivas en flujos claros y controlados.
           </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#proyectos">Ver casos de trabajo</a>
-            <a class="button secondary" href="https://github.com/CesarFlores96" target="_blank" rel="noreferrer">Explorar GitHub</a>
+          <div class="welcome-actions">
+            <button class="primary-action" type="button" data-open="projects">Explorar proyectos</button>
+            <button class="glass-action" type="button" data-open="ai">Abrir IA Lab</button>
           </div>
-          <ul class="proof-list" aria-label="Especialidades">
-            <li>Aplicaciones empresariales</li>
-            <li>GIS y datos geoespaciales</li>
-            <li>APIs e integración</li>
-            <li>Automatización con IA</li>
-          </ul>
-        </div>
-
-        <aside class="hero-panel reveal" aria-label="Resumen técnico">
-          <div class="status"><span></span> Disponible para proyectos remotos</div>
-          <div class="code-window">
-            <div class="window-top"><i></i><i></i><i></i></div>
-            <pre><code><span class="muted">// Mi forma de trabajar</span>
-const solution = {
-  businessFirst: true,
-  architecture: "simple & scalable",
-  data: "auditable",
-  delivery: "production-ready"
-};</code></pre>
+          <div class="focus-row" aria-label="Áreas de especialidad">
+            <span>Automatización</span>
+            <span>Chatbots</span>
+            <span>Agentes IA</span>
+            <span>Python & APIs</span>
+            <span>Datos empresariales</span>
           </div>
-          <div class="metric-grid">
-            <div><strong>Backend</strong><span>C# · FastAPI · Node</span></div>
-            <div><strong>Frontend</strong><span>Vue · React · RN</span></div>
-            <div><strong>Datos</strong><span>PostgreSQL · SQL Server</span></div>
-            <div><strong>Cloud</strong><span>Supabase · Vercel</span></div>
-          </div>
-        </aside>
-      </section>
+        </section>
 
-      <section class="section intro reveal" id="proyectos">
-        <p class="eyebrow">Casos seleccionados</p>
-        <div class="section-heading">
-          <h2>No solo tecnologías. Problemas, decisiones y resultados.</h2>
-          <p>Estos casos muestran el tipo de sistemas que diseño y cómo traduzco una necesidad operativa en arquitectura, datos e interfaces útiles.</p>
-        </div>
-      </section>
-
-      <section class="projects section">
-        <article class="project-card featured reveal">
-          <div class="project-number">01</div>
-          <div class="project-content">
-            <p class="project-type">Plataforma GIS empresarial</p>
-            <h3>Gestión de suministros, inspecciones y catastro en mapas</h3>
-            <p>
-              Arquitectura web y móvil para consultar información geoespacial, registrar inspecciones en campo y combinar datos operativos con información comercial de gran volumen.
-            </p>
-            <div class="project-details">
-              <div><span>Problema</span><p>Datos dispersos, consultas lentas y trabajo de campo desconectado.</p></div>
-              <div><span>Solución</span><p>MapLibre + Supabase/PostGIS para GIS y FastAPI para datos comerciales pesados.</p></div>
-              <div><span>Decisión clave</span><p>Separar cargas operativas y transaccionales sin duplicar autenticación.</p></div>
+        <section class="window active-window" id="window-about" data-window="about" aria-label="Ventana Acerca de mí">
+          <div class="window-titlebar drag-handle">
+            <div class="traffic-lights">
+              <button class="traffic close" type="button" data-window-action="close" aria-label="Cerrar"></button>
+              <button class="traffic minimize" type="button" data-window-action="minimize" aria-label="Minimizar"></button>
+              <button class="traffic maximize" type="button" data-window-action="maximize" aria-label="Maximizar"></button>
             </div>
-            <div class="tags"><span>React</span><span>React Native</span><span>FastAPI</span><span>Supabase</span><span>PostGIS</span><span>MapLibre</span></div>
+            <div class="window-title">Acerca de mí</div>
+            <div class="titlebar-spacer"></div>
           </div>
-          <div class="project-visual map-visual" aria-label="Representación de una plataforma GIS">
-            <div class="map-grid"></div><i class="pin p1"></i><i class="pin p2"></i><i class="pin p3"></i>
-            <div class="map-card"><small>Suministros activos</small><strong>128,450</strong><span>+3.8% este mes</span></div>
+          <div class="window-content about-layout">
+            <aside class="profile-panel">
+              <div class="profile-image-wrap">
+                <img src="./images/Cara2.png" alt="Cesar Flores" />
+              </div>
+              <h2>Cesar Flores</h2>
+              <p>Ingeniero de Sistemas</p>
+              <span class="availability"><i></i> Disponible para trabajo remoto</span>
+              <div class="profile-links">
+                <a href="https://github.com/CesarFlores96" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/cesar-flores-miranda-259244141/" target="_blank" rel="noreferrer">LinkedIn</a>
+              </div>
+            </aside>
+            <div class="about-copy">
+              <p class="window-eyebrow">PERFIL PROFESIONAL</p>
+              <h2>Construyo sistemas que reducen fricción y convierten información en decisiones.</h2>
+              <p>
+                Mi experiencia combina desarrollo empresarial, bases de datos, integraciones y diseño de interfaces. Trabajo principalmente con C#, Vue, Python, FastAPI, PostgreSQL, SQL Server y Supabase, siempre buscando que la solución sea mantenible, segura y entendible por quienes realmente la usan.
+              </p>
+              <p>
+                En los últimos meses he orientado gran parte de mi trabajo a <strong>automatizaciones, chatbots y agentes con modelos de IA</strong>. Esto incluye diseñar flujos en Python, conectar APIs y bases de datos, preparar contexto para modelos, validar respuestas, registrar cada ejecución y limitar acciones sensibles. No me interesa agregar IA como adorno: la uso cuando puede ahorrar tiempo, reducir errores o mejorar el acceso a información compleja.
+              </p>
+              <div class="about-highlights">
+                <article><span>01</span><strong>Negocio primero</strong><p>Entiendo el proceso y sus excepciones antes de escribir código.</p></article>
+                <article><span>02</span><strong>IA con control</strong><p>Auditoría, permisos, validación y trazabilidad antes de automatizar.</p></article>
+                <article><span>03</span><strong>Entrega útil</strong><p>Interfaces claras, documentación y arquitectura preparada para crecer.</p></article>
+              </div>
+            </div>
           </div>
-        </article>
+        </section>
 
-        <div class="project-grid">
-          <article class="project-card reveal">
-            <div class="project-number">02</div>
-            <p class="project-type">Sistema interno de operaciones</p>
-            <h3>Órdenes de trabajo con trazabilidad documental</h3>
-            <p>Gestión de clientes, servicios, responsables, evidencias, procesos y reportes, con reglas de negocio centralizadas y generación automática de códigos.</p>
-            <div class="tags"><span>C#</span><span>SQL Server</span><span>DevExpress</span><span>APIs REST</span></div>
-            <ul class="outcomes"><li>Reglas de negocio explícitas</li><li>Seguimiento de documentos y procesos</li><li>Integración con mesa de ayuda</li></ul>
-          </article>
+        <section class="window is-hidden" id="window-projects" data-window="projects" aria-label="Ventana Proyectos">
+          <div class="window-titlebar drag-handle">
+            <div class="traffic-lights">
+              <button class="traffic close" type="button" data-window-action="close" aria-label="Cerrar"></button>
+              <button class="traffic minimize" type="button" data-window-action="minimize" aria-label="Minimizar"></button>
+              <button class="traffic maximize" type="button" data-window-action="maximize" aria-label="Maximizar"></button>
+            </div>
+            <div class="window-title">Proyectos</div>
+            <div class="titlebar-spacer"></div>
+          </div>
+          <div class="finder-layout">
+            <aside class="finder-sidebar">
+              <p>Favoritos</p>
+              <button class="filter-button active" type="button" data-filter="all"><span>◫</span> Todos</button>
+              <button class="filter-button" type="button" data-filter="enterprise"><span>▦</span> Empresarial</button>
+              <button class="filter-button" type="button" data-filter="backend"><span>⌘</span> Backend</button>
+              <button class="filter-button" type="button" data-filter="ai"><span>✦</span> IA & Automatización</button>
+              <p>Tecnologías</p>
+              <button type="button" data-open="stack"><span>›_</span> Stack técnico</button>
+            </aside>
+            <div class="finder-main">
+              <div class="finder-toolbar">
+                <div>
+                  <h2>Proyectos seleccionados</h2>
+                  <p>Productos y módulos construidos para resolver necesidades operativas reales.</p>
+                </div>
+                <span class="project-count" id="project-count">6 elementos</span>
+              </div>
+              <div class="project-gallery">
+                <article class="project-item project-featured" data-category="enterprise">
+                  <div class="project-image-shell">
+                    <img src="./images/dashboardcolegio.png" alt="Dashboard del sistema de gestión del Colegio Sigma" />
+                    <span class="project-badge">Sistema integral</span>
+                  </div>
+                  <div class="project-copy">
+                    <p class="project-label">GESTIÓN EDUCATIVA</p>
+                    <h3>Plataforma de gestión para Colegio Sigma</h3>
+                    <p>Aplicación para administrar alumnos, aulas, cursos, personal, notificaciones y procesos académicos desde un entorno unificado.</p>
+                    <ul><li>Paneles administrativos y reportes</li><li>Reglas de negocio centralizadas</li><li>Módulos integrados por rol</li></ul>
+                    <div class="tag-list"><span>C#</span><span>Vue.js</span><span>SQL Server</span><span>DevExtreme</span></div>
+                  </div>
+                </article>
 
-          <article class="project-card reveal">
-            <div class="project-number">03</div>
-            <p class="project-type">IA aplicada a bases de datos</p>
-            <h3>Asistente de consultas SQL con auditoría y seguridad</h3>
-            <p>Agente orientado a responder preguntas sobre datos empresariales, controlar consultas generadas, registrar cada ejecución y evitar operaciones peligrosas.</p>
-            <div class="tags"><span>Python</span><span>PostgreSQL</span><span>LLM</span><span>RAG</span><span>Auditoría</span></div>
-            <ul class="outcomes"><li>Consultas de solo lectura</li><li>Registro completo de prompts y SQL</li><li>Validación antes de ejecutar</li></ul>
-          </article>
-        </div>
-      </section>
+                <article class="project-item" data-category="enterprise">
+                  <div class="project-thumb"><img src="./images/colegio.png" alt="Módulo de talento humano" /></div>
+                  <div class="project-copy compact">
+                    <p class="project-label">RECURSOS HUMANOS</p>
+                    <h3>Módulo de Talento Humano</h3>
+                    <p>Control de asistencia, tardanzas, memorandos, personal y procesos administrativos.</p>
+                    <div class="tag-list"><span>Vue</span><span>Quasar</span><span>JavaScript</span></div>
+                  </div>
+                </article>
 
-      <section class="section process reveal" id="experiencia">
-        <p class="eyebrow">Cómo trabajo</p>
-        <div class="section-heading">
-          <h2>Ingeniería antes que decoración.</h2>
-          <p>Me gusta partir del proceso real, definir responsabilidades y recién después elegir tecnología. Lo clásico sigue funcionando: entender, diseñar, construir, validar.</p>
-        </div>
-        <div class="process-grid">
-          <article><span>01</span><h3>Entender</h3><p>Mapeo usuarios, reglas, excepciones, datos críticos y riesgos.</p></article>
-          <article><span>02</span><h3>Diseñar</h3><p>Defino arquitectura, contratos, modelo de datos y límites claros.</p></article>
-          <article><span>03</span><h3>Construir</h3><p>Implemento por módulos, con código legible y decisiones documentadas.</p></article>
-          <article><span>04</span><h3>Validar</h3><p>Pruebo casos reales, rendimiento, seguridad y experiencia de uso.</p></article>
-        </div>
-      </section>
+                <article class="project-item" data-category="backend">
+                  <div class="project-thumb"><img src="./images/api.png" alt="API empresarial desarrollada en .NET" /></div>
+                  <div class="project-copy compact">
+                    <p class="project-label">BACKEND EMPRESARIAL</p>
+                    <h3>API REST para ERP</h3>
+                    <p>Servicios para operaciones, reglas de negocio y reportes dinámicos sobre SQL Server.</p>
+                    <div class="tag-list"><span>.NET</span><span>ADO.NET</span><span>DevExpress</span></div>
+                  </div>
+                </article>
 
-      <section class="section stack reveal">
-        <p class="eyebrow">Stack principal</p>
-        <div class="stack-groups">
-          <div><h3>Backend</h3><p>C#, .NET, Python, FastAPI, Node.js, APIs REST, JWT</p></div>
-          <div><h3>Frontend</h3><p>Vue.js, React, React Native, JavaScript, TypeScript, Tailwind</p></div>
-          <div><h3>Datos</h3><p>PostgreSQL, SQL Server, Supabase, PostGIS, modelado y optimización SQL</p></div>
-          <div><h3>Ingeniería</h3><p>Git, arquitectura modular, auditoría, integración, automatización y documentación</p></div>
-        </div>
-      </section>
+                <article class="project-item ai-project" data-category="ai">
+                  <div class="generated-visual chatbot-visual">
+                    <span class="chat-bubble left">¿Cuál es el estado del proceso?</span>
+                    <span class="chat-bubble right">Te resumo los datos y las próximas acciones.</span>
+                    <i class="ai-orb">AI</i>
+                  </div>
+                  <div class="project-copy compact">
+                    <p class="project-label">CHATBOTS CONTEXTUALES</p>
+                    <h3>Asistentes conectados a información empresarial</h3>
+                    <p>Diseño de chatbots que consultan documentos, APIs o bases de datos y responden con contexto controlado.</p>
+                    <div class="tag-list"><span>Python</span><span>RAG</span><span>FastAPI</span><span>LLM</span></div>
+                  </div>
+                </article>
 
-      <section class="contact section reveal" id="contacto">
-        <p class="eyebrow">Contacto</p>
-        <h2>¿Tienes un proceso complejo que necesita convertirse en software claro?</h2>
-        <p>Estoy abierto a colaborar en proyectos remotos de desarrollo, integración, automatización y plataformas de datos.</p>
-        <div class="contact-actions">
-          <a class="button primary" href="mailto:cesarfmiranda0@gmail.com">cesarfmiranda0@gmail.com</a>
-          <a class="button secondary" href="https://www.linkedin.com/in/cesar-flores-miranda-259244141/" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
-      </section>
-    </main>
+                <article class="project-item ai-project" data-category="ai">
+                  <div class="generated-visual workflow-visual">
+                    <div class="flow-node">Entrada</div><span>→</span><div class="flow-node accent">Agente</div><span>→</span><div class="flow-node">Validación</div><span>→</span><div class="flow-node">Acción</div>
+                  </div>
+                  <div class="project-copy compact">
+                    <p class="project-label">AUTOMATIZACIÓN</p>
+                    <h3>Flujos inteligentes con supervisión</h3>
+                    <p>Automatización de tareas repetitivas con validaciones, registros, reglas y puntos de aprobación humana.</p>
+                    <div class="tag-list"><span>Python</span><span>APIs</span><span>Workers</span><span>Logs</span></div>
+                  </div>
+                </article>
 
-    <footer>
-      <span>© <span id="year"></span> Cesar Flores</span>
-      <span>Software con propósito, datos con criterio.</span>
-    </footer>
+                <article class="project-item ai-project" data-category="ai backend">
+                  <div class="generated-visual sql-visual">
+                    <code><span>SELECT</span> consumo, periodo<br />FROM facturacion<br />WHERE suministro = ?;</code>
+                    <div class="security-chip">Solo lectura · Auditado</div>
+                  </div>
+                  <div class="project-copy compact">
+                    <p class="project-label">AGENTES DE DATOS</p>
+                    <h3>Consultas SQL asistidas y auditables</h3>
+                    <p>Agentes que interpretan preguntas, generan consultas seguras y registran cada paso antes de acceder a datos.</p>
+                    <div class="tag-list"><span>PostgreSQL</span><span>SQL Guardrails</span><span>Python</span></div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
 
-    <script src="./script.js?v=20260711-2"></script>
+        <section class="window is-hidden" id="window-ai" data-window="ai" aria-label="Ventana IA y Automatización">
+          <div class="window-titlebar drag-handle">
+            <div class="traffic-lights">
+              <button class="traffic close" type="button" data-window-action="close" aria-label="Cerrar"></button>
+              <button class="traffic minimize" type="button" data-window-action="minimize" aria-label="Minimizar"></button>
+              <button class="traffic maximize" type="button" data-window-action="maximize" aria-label="Maximizar"></button>
+            </div>
+            <div class="window-title">IA Lab</div>
+            <div class="titlebar-spacer"></div>
+          </div>
+          <div class="window-content ai-lab">
+            <div class="ai-heading">
+              <div>
+                <p class="window-eyebrow">ENFOQUE ACTUAL</p>
+                <h2>Automatización, chatbots y agentes que trabajan con contexto real.</h2>
+              </div>
+              <p>
+                Desarrollo soluciones donde los modelos de IA forman parte de un flujo de ingeniería: reciben contexto, usan herramientas, consultan fuentes autorizadas, generan resultados estructurados y dejan evidencia de lo que hicieron. El objetivo es que la IA sea útil, verificable y segura para procesos empresariales.
+              </p>
+            </div>
+
+            <div class="ai-capability-grid">
+              <article class="capability-card purple">
+                <div class="capability-icon">⚡</div>
+                <span>Automatización</span>
+                <h3>Procesos que avanzan solos, pero no a ciegas</h3>
+                <p>Orquestación de tareas, validaciones, notificaciones, archivos, consultas y aprobaciones humanas.</p>
+                <small>Python · APIs · Jobs · Webhooks</small>
+              </article>
+              <article class="capability-card blue">
+                <div class="capability-icon">◌</div>
+                <span>Chatbots</span>
+                <h3>Conversaciones conectadas a conocimiento útil</h3>
+                <p>Asistentes que recuperan información relevante, mantienen contexto y responden de forma consistente.</p>
+                <small>RAG · Embeddings · FastAPI · LLM</small>
+              </article>
+              <article class="capability-card orange">
+                <div class="capability-icon">⌘</div>
+                <span>Agentes</span>
+                <h3>Modelos capaces de usar herramientas con límites</h3>
+                <p>Agentes para consultar APIs, preparar reportes, analizar datos y coordinar tareas bajo reglas explícitas.</p>
+                <small>Tool calling · Policies · Structured output</small>
+              </article>
+              <article class="capability-card green">
+                <div class="capability-icon">›_</div>
+                <span>Python</span>
+                <h3>La capa que conecta modelos, datos y servicios</h3>
+                <p>Backends ligeros, procesamiento de archivos, validación, integración y servicios preparados para producción.</p>
+                <small>Python · FastAPI · Pydantic · PostgreSQL</small>
+              </article>
+            </div>
+
+            <div class="ai-indicators">
+              <article><span class="indicator-dot green-dot"></span><div><strong>Integración</strong><p>APIs, bases de datos, documentos y servicios internos.</p></div></article>
+              <article><span class="indicator-dot blue-dot"></span><div><strong>Observabilidad</strong><p>Logs, historial, métricas y seguimiento de cada ejecución.</p></div></article>
+              <article><span class="indicator-dot orange-dot"></span><div><strong>Seguridad</strong><p>Permisos, límites, validación y operaciones de solo lectura cuando corresponde.</p></div></article>
+              <article><span class="indicator-dot purple-dot"></span><div><strong>Experiencia</strong><p>Interfaces claras para que el usuario conserve el control.</p></div></article>
+            </div>
+
+            <div class="architecture-panel">
+              <div class="architecture-copy">
+                <p class="window-eyebrow">ARQUITECTURA DE REFERENCIA</p>
+                <h3>Un modelo no debería conectarse directamente a todo.</h3>
+                <p>Prefiero una arquitectura por capas: entrada controlada, recuperación de contexto, razonamiento, herramientas autorizadas, validación y auditoría. Menos magia, más confianza.</p>
+              </div>
+              <div class="architecture-flow" aria-label="Flujo de una solución con inteligencia artificial">
+                <div><span>01</span><strong>Usuario</strong><small>Pregunta o evento</small></div>
+                <i>→</i>
+                <div><span>02</span><strong>Contexto</strong><small>RAG, APIs, BD</small></div>
+                <i>→</i>
+                <div class="flow-active"><span>03</span><strong>Modelo</strong><small>Decisión estructurada</small></div>
+                <i>→</i>
+                <div><span>04</span><strong>Control</strong><small>Validación y logs</small></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="window is-hidden" id="window-stack" data-window="stack" aria-label="Ventana Stack técnico">
+          <div class="window-titlebar drag-handle">
+            <div class="traffic-lights">
+              <button class="traffic close" type="button" data-window-action="close" aria-label="Cerrar"></button>
+              <button class="traffic minimize" type="button" data-window-action="minimize" aria-label="Minimizar"></button>
+              <button class="traffic maximize" type="button" data-window-action="maximize" aria-label="Maximizar"></button>
+            </div>
+            <div class="window-title">Stack técnico</div>
+            <div class="titlebar-spacer"></div>
+          </div>
+          <div class="window-content stack-window">
+            <p class="window-eyebrow">HERRAMIENTAS QUE UTILIZO</p>
+            <h2>Tecnología elegida por el problema, no por la moda.</h2>
+            <div class="stack-grid">
+              <article><div class="stack-icon dotnet">C#</div><h3>Backend empresarial</h3><p>C#, .NET, APIs REST, JWT, DevExpress, servicios e integraciones.</p></article>
+              <article><div class="stack-icon python">Py</div><h3>IA y automatización</h3><p>Python, FastAPI, Pydantic, procesamiento, agentes y tareas programadas.</p></article>
+              <article><div class="stack-icon vue">V</div><h3>Interfaces</h3><p>Vue.js, React, React Native, JavaScript, TypeScript y Tailwind.</p></article>
+              <article><div class="stack-icon db">DB</div><h3>Datos</h3><p>PostgreSQL, SQL Server, Supabase, PostGIS, modelado y optimización.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="window is-hidden" id="window-contact" data-window="contact" aria-label="Ventana Contacto">
+          <div class="window-titlebar drag-handle">
+            <div class="traffic-lights">
+              <button class="traffic close" type="button" data-window-action="close" aria-label="Cerrar"></button>
+              <button class="traffic minimize" type="button" data-window-action="minimize" aria-label="Minimizar"></button>
+              <button class="traffic maximize" type="button" data-window-action="maximize" aria-label="Maximizar"></button>
+            </div>
+            <div class="window-title">Contacto</div>
+            <div class="titlebar-spacer"></div>
+          </div>
+          <div class="window-content contact-window">
+            <div class="contact-avatar"><img src="./images/Cara2.png" alt="Cesar Flores" /></div>
+            <p class="window-eyebrow">HABLEMOS</p>
+            <h2>¿Tienes un proceso que podría ser más simple, rápido o inteligente?</h2>
+            <p>Estoy disponible para proyectos remotos relacionados con desarrollo empresarial, automatización, chatbots, agentes con IA, integraciones y plataformas de datos.</p>
+            <div class="contact-buttons">
+              <a class="contact-primary" href="mailto:cesarfmiranda0@gmail.com">Enviar correo</a>
+              <a href="https://www.linkedin.com/in/cesar-flores-miranda-259244141/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://github.com/CesarFlores96" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <nav class="dock" aria-label="Aplicaciones del portafolio">
+        <button class="dock-item" type="button" data-open="about" aria-label="Acerca de mí">
+          <span class="dock-tooltip">Acerca de mí</span>
+          <span class="dock-icon finder-app"><b></b></span>
+          <i class="dock-indicator active"></i>
+        </button>
+        <button class="dock-item" type="button" data-open="projects" aria-label="Proyectos">
+          <span class="dock-tooltip">Proyectos</span>
+          <span class="dock-icon projects-app">▦</span>
+          <i class="dock-indicator"></i>
+        </button>
+        <button class="dock-item" type="button" data-open="ai" aria-label="IA Lab">
+          <span class="dock-tooltip">IA Lab</span>
+          <span class="dock-icon ai-app">✦</span>
+          <i class="dock-indicator"></i>
+        </button>
+        <button class="dock-item" type="button" data-open="stack" aria-label="Stack técnico">
+          <span class="dock-tooltip">Stack</span>
+          <span class="dock-icon terminal-app">›_</span>
+          <i class="dock-indicator"></i>
+        </button>
+        <span class="dock-separator"></span>
+        <a class="dock-item" href="https://github.com/CesarFlores96" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <span class="dock-tooltip">GitHub</span>
+          <span class="dock-icon github-app">GH</span>
+        </a>
+        <button class="dock-item" type="button" data-open="contact" aria-label="Contacto">
+          <span class="dock-tooltip">Contacto</span>
+          <span class="dock-icon mail-app">✉</span>
+          <i class="dock-indicator"></i>
+        </button>
+      </nav>
+    </div>
+
+    <noscript>Este portafolio necesita JavaScript para abrir y mover las ventanas interactivas.</noscript>
+    <script src="./script.js?v=20260711-macos-ai"></script>
   </body>
 </html>
