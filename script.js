@@ -1,4 +1,27 @@
 (() => {
+  const motionStyles = document.createElement("style");
+  motionStyles.textContent = `
+    .window {
+      transform: translate3d(-50%, 0, 0);
+      transition: opacity 0.15s ease-out, transform 0.19s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.18s ease-out, height 0.18s ease-out, top 0.18s ease-out, left 0.18s ease-out !important;
+    }
+    .window.is-opening { animation-duration: 0.2s !important; }
+    .window.is-closing { transform: translate3d(-50%, 24px, 0) scale(0.9) !important; }
+    .window.is-minimized { transform: translate3d(-50%, calc(100vh - 120px), 0) scale(0.28) !important; }
+    .window.is-dragging {
+      transition: none !important;
+      will-change: transform;
+      background: rgba(20, 25, 44, 0.96);
+      box-shadow: 0 18px 52px rgba(4, 7, 20, 0.38), inset 0 1px rgba(255, 255, 255, 0.08);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    .window.is-dragging, .window.is-dragging * { user-select: none; }
+    .drag-handle { cursor: grab; touch-action: none; }
+    .window.is-dragging .drag-handle { cursor: grabbing; }
+  `;
+  document.head.appendChild(motionStyles);
+
   const windows = Array.from(document.querySelectorAll(".window"));
   const dockButtons = Array.from(document.querySelectorAll(".dock-item[data-open]"));
   const menuTriggers = Array.from(document.querySelectorAll(".menu-trigger[data-menu]"));
@@ -40,7 +63,7 @@
     windowElement.classList.remove("is-hidden", "is-minimized", "is-closing");
     windowElement.classList.add("is-opening");
     focusWindow(windowElement);
-    window.setTimeout(() => windowElement.classList.remove("is-opening"), 340);
+    window.setTimeout(() => windowElement.classList.remove("is-opening"), 220);
     updateDock();
     closeMenus();
   };
@@ -51,12 +74,12 @@
       windowElement.classList.add("is-hidden");
       windowElement.classList.remove("is-closing", "is-minimized", "is-maximized");
       updateDock();
-    }, 220);
+    }, 170);
   };
 
   const minimizeWindow = (windowElement) => {
     windowElement.classList.add("is-minimized");
-    window.setTimeout(updateDock, 180);
+    window.setTimeout(updateDock, 120);
   };
 
   const maximizeWindow = (windowElement) => {
@@ -89,38 +112,74 @@
     if (!handle) return;
 
     let dragState = null;
+    let dragFrame = 0;
+
+    const paintDragPosition = () => {
+      dragFrame = 0;
+      if (!dragState) return;
+
+      const deltaX = dragState.nextLeft - dragState.originLeft;
+      const deltaY = dragState.nextTop - dragState.originTop;
+      windowElement.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0)`;
+    };
+
+    const finishDrag = (event) => {
+      if (!dragState) return;
+
+      if (dragFrame) {
+        window.cancelAnimationFrame(dragFrame);
+        dragFrame = 0;
+      }
+
+      const { nextLeft, nextTop } = dragState;
+      windowElement.style.left = `${nextLeft}px`;
+      windowElement.style.top = `${nextTop}px`;
+      windowElement.style.transform = "none";
+      dragState = null;
+
+      if (handle.hasPointerCapture(event.pointerId)) {
+        handle.releasePointerCapture(event.pointerId);
+      }
+
+      window.requestAnimationFrame(() => windowElement.classList.remove("is-dragging"));
+    };
 
     handle.addEventListener("pointerdown", (event) => {
       if (event.target.closest("button") || window.innerWidth <= 820 || windowElement.classList.contains("is-maximized")) return;
 
+      event.preventDefault();
       const rect = windowElement.getBoundingClientRect();
       dragState = {
+        pointerId: event.pointerId,
         offsetX: event.clientX - rect.left,
         offsetY: event.clientY - rect.top,
+        originLeft: rect.left,
+        originTop: rect.top,
+        nextLeft: rect.left,
+        nextTop: rect.top,
+        width: rect.width,
       };
 
       windowElement.style.left = `${rect.left}px`;
       windowElement.style.top = `${rect.top}px`;
       windowElement.style.transform = "none";
+      windowElement.classList.add("is-dragging");
       handle.setPointerCapture(event.pointerId);
     });
 
     handle.addEventListener("pointermove", (event) => {
-      if (!dragState) return;
+      if (!dragState || event.pointerId !== dragState.pointerId) return;
 
-      const maxLeft = window.innerWidth - windowElement.offsetWidth - 8;
-      const maxTop = window.innerHeight - 120;
-      const nextLeft = Math.min(Math.max(8, event.clientX - dragState.offsetX), Math.max(8, maxLeft));
-      const nextTop = Math.min(Math.max(8, event.clientY - dragState.offsetY), Math.max(8, maxTop));
+      const maxLeft = Math.max(8, window.innerWidth - dragState.width - 8);
+      const maxTop = Math.max(8, window.innerHeight - 120);
+      dragState.nextLeft = Math.min(Math.max(8, event.clientX - dragState.offsetX), maxLeft);
+      dragState.nextTop = Math.min(Math.max(8, event.clientY - dragState.offsetY), maxTop);
 
-      windowElement.style.left = `${nextLeft}px`;
-      windowElement.style.top = `${nextTop}px`;
+      if (!dragFrame) dragFrame = window.requestAnimationFrame(paintDragPosition);
     });
 
-    handle.addEventListener("pointerup", (event) => {
-      dragState = null;
-      if (handle.hasPointerCapture(event.pointerId)) handle.releasePointerCapture(event.pointerId);
-    });
+    handle.addEventListener("pointerup", finishDrag);
+    handle.addEventListener("pointercancel", finishDrag);
 
     handle.addEventListener("dblclick", (event) => {
       if (!event.target.closest("button")) maximizeWindow(windowElement);
