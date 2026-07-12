@@ -1,29 +1,43 @@
-# Portafolio profesional de Cesar Flores
+# Portafolio interactivo de Cesar Flores
 
-Portafolio personal orientado a mostrar experiencia en desarrollo de software empresarial, plataformas GIS, integración de APIs, bases de datos y automatización con inteligencia artificial.
+Portafolio personal inspirado en la experiencia de un escritorio macOS. La interfaz permite abrir, minimizar, maximizar, mover y cerrar ventanas para explorar información profesional sin recurrir a una plantilla tradicional de una sola página.
 
-## Enfoque
+## Contenido
 
-La página presenta casos de trabajo con contexto técnico: problema, solución, decisiones de arquitectura y tecnologías utilizadas. El objetivo es comunicar capacidad para resolver procesos reales, no únicamente enumerar herramientas.
+- Presentación profesional y disponibilidad
+- Proyectos empresariales con capturas reales
+- Experiencia reciente en automatización, chatbots y agentes con IA
+- Arquitectura de referencia para soluciones con modelos de IA
+- Stack técnico organizado por contexto
+- Accesos directos a GitHub, LinkedIn y correo
 
-## Tecnologías principales
+## Enfoque profesional
 
-- Backend: C#, .NET, Python, FastAPI y Node.js
-- Frontend: Vue.js, React, React Native, JavaScript y TypeScript
-- Datos: PostgreSQL, SQL Server, Supabase y PostGIS
-- Ingeniería: APIs REST, JWT, arquitectura modular, auditoría, automatización y documentación
+El portafolio comunica experiencia en:
+
+- Desarrollo empresarial con C# y .NET
+- Interfaces con Vue.js, React y React Native
+- Automatización y servicios con Python y FastAPI
+- Chatbots, RAG, tool calling y agentes con modelos de IA
+- PostgreSQL, SQL Server, Supabase y PostGIS
+- APIs, auditoría, permisos, validación y observabilidad
 
 ## Ejecución local
 
-No requiere instalación ni proceso de compilación. Abre `index.html` directamente en el navegador o sirve la carpeta con cualquier servidor HTTP estático.
-
-Ejemplo:
+No requiere instalación ni proceso de compilación.
 
 ```bash
 python -m http.server 8000
 ```
 
-Luego visita `http://localhost:8000`.
+Luego abre `http://localhost:8000`.
+
+## Archivos principales
+
+- `index.html`: escritorio, ventanas y contenido
+- `styles.css`: diseño macOS, transiciones y responsive
+- `script.js`: ventanas, menús, filtros, dock y reloj
+- `images/`: capturas reales de proyectos
 
 ## Contacto
 
