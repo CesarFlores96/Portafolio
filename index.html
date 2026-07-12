@@ -1,404 +1,157 @@
-<!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<!doctype html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portafolio de Desarrollador</title>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts: Inter -->
+    <meta name="description" content="Portafolio de Cesar Flores, ingeniero de sistemas especializado en aplicaciones empresariales, GIS, APIs y automatización con IA." />
+    <title>Cesar Flores | Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Estilos personalizados -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="antialiased">
-    <!-- Canvas para el fondo de partículas -->
-    <canvas id="particle-canvas"></canvas>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">CF<span>.</span></a>
+      <nav aria-label="Navegación principal">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#experiencia">Cómo trabajo</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a class="header-cta" href="mailto:cesarfmiranda0@gmail.com">Conversemos</a>
+    </header>
 
-    <!-- Contenedor principal -->
-    <div class="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
-      <!-- Barra de Navegación -->
-      <header
-        class="flex justify-between items-center py-6 sticky top-0 bg-gray-900/80 backdrop-blur-sm z-50 nav-header"
-      >
-        <div class="text-2xl font-bold gradient-text glow-text">
-          Mi Portafolio
+    <main>
+      <section class="hero section" id="inicio">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Ingeniero de Sistemas · Lima, Perú</p>
+          <h1>Construyo software que conecta <span>operaciones, datos y decisiones.</span></h1>
+          <p class="hero-text">
+            Desarrollo aplicaciones empresariales, plataformas GIS y automatizaciones con IA usando C#, Vue, FastAPI, PostgreSQL y Supabase. Mi enfoque no es llenar pantallas: es resolver procesos complejos con sistemas claros, auditables y mantenibles.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#proyectos">Ver casos de trabajo</a>
+            <a class="button secondary" href="https://github.com/CesarFlores96" target="_blank" rel="noreferrer">Explorar GitHub</a>
+          </div>
+          <ul class="proof-list" aria-label="Especialidades">
+            <li>Aplicaciones empresariales</li>
+            <li>GIS y datos geoespaciales</li>
+            <li>APIs e integración</li>
+            <li>Automatización con IA</li>
+          </ul>
         </div>
-        <nav class="hidden md:flex space-x-6 text-lg">
-          <a href="#about" class="nav-link">Sobre mí</a>
-          <a href="#skills" class="nav-link">Habilidades</a>
-          <a href="#projects" class="nav-link">Proyectos</a>
-          <a href="#ai-assistant" class="nav-link">✨ Asistente AI</a>
-          <a href="#contact" class="nav-link">Contacto</a>
-        </nav>
-      </header>
 
-      <main>
-        <!-- Sección de Inicio (Hero) -->
-        <section id="home" class="text-center py-24 sm:py-32">
-          <h1
-            class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 animatable hero-title"
-          >
-            Hola, soy
-            <span class="gradient-text glow-text">Cesar Flores Miranda</span>
-          </h1>
-          <p
-            id="subtitle"
-            class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto h-8 animatable delay-1 typewriter"
-          >
-            <!-- El texto se generará con JavaScript -->
-          </p>
-          <div class="mt-12 animatable delay-2">
-            <a href="#projects" class="cta-button"> Ver mis Proyectos </a>
+        <aside class="hero-panel reveal" aria-label="Resumen técnico">
+          <div class="status"><span></span> Disponible para proyectos remotos</div>
+          <div class="code-window">
+            <div class="window-top"><i></i><i></i><i></i></div>
+            <pre><code><span class="muted">// Mi forma de trabajar</span>
+const solution = {
+  businessFirst: true,
+  architecture: "simple & scalable",
+  data: "auditable",
+  delivery: "production-ready"
+};</code></pre>
           </div>
-        </section>
-
-        <!-- Sección Sobre Mí -->
-        <section id="about" class="py-20">
-          <div class="flex flex-col md:flex-row items-center gap-12 animatable">
-            <div class="md:w-1/3 flex justify-center items-center">
-              <div class="profile-image-container">
-                <img
-                  src="images/Cara2.png"
-                  alt="Foto de perfil"
-                  class="profile-image"
-                />
-              </div>
-            </div>
-            <div class="md:w-2/3 text-lg text-gray-300 space-y-4">
-              <h2
-                class="text-4xl font-bold mb-4 text-center md:text-left section-title"
-              >
-                Sobre Mí
-              </h2>
-              <p class="fade-in-text">
-                Soy un entusiasta del desarrollo de software con experiencia en
-                la creación de soluciones robustas y eficientes, especialmente
-                en el backend con C# y Python, y en la construcción de
-                interfaces interactivas con Vue.js y JavaScript.
-              </p>
-              <p class="fade-in-text">
-                Cuento con una certificación en la norma ISO 9001, lo que me ha
-                permitido comprender mejor la gestión de la calidad en procesos
-                y proyectos. Además, tengo experiencia en el diseño y gestión de
-                bases de datos como SQL Server y MySQL.
-              </p>
-            </div>
+          <div class="metric-grid">
+            <div><strong>Backend</strong><span>C# · FastAPI · Node</span></div>
+            <div><strong>Frontend</strong><span>Vue · React · RN</span></div>
+            <div><strong>Datos</strong><span>PostgreSQL · SQL Server</span></div>
+            <div><strong>Cloud</strong><span>Supabase · Vercel</span></div>
           </div>
-        </section>
+        </aside>
+      </section>
 
-        <!-- Sección de Habilidades -->
-        <section id="skills" class="py-20">
-          <h2
-            class="text-4xl font-bold mb-12 text-center section-title animatable"
-          >
-            Habilidades Técnicas
-          </h2>
-          <div
-            id="skills-container"
-            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 skills-grid"
-          >
-            <div class="skill-card animatable" data-skill="C# & .NET">
-              <div class="skill-icon">
-                <img
-                  src="images/c-4.svg"
-                  alt="C# .NET"
-                  class="w-16 h-16 mx-auto"
-                />
-              </div>
-              <h3 class="text-xl font-semibold">C# & .NET</h3>
+      <section class="section intro reveal" id="proyectos">
+        <p class="eyebrow">Casos seleccionados</p>
+        <div class="section-heading">
+          <h2>No solo tecnologías. Problemas, decisiones y resultados.</h2>
+          <p>Estos casos muestran el tipo de sistemas que diseño y cómo traduzco una necesidad operativa en arquitectura, datos e interfaces útiles.</p>
+        </div>
+      </section>
+
+      <section class="projects section">
+        <article class="project-card featured reveal">
+          <div class="project-number">01</div>
+          <div class="project-content">
+            <p class="project-type">Plataforma GIS empresarial</p>
+            <h3>Gestión de suministros, inspecciones y catastro en mapas</h3>
+            <p>
+              Arquitectura web y móvil para consultar información geoespacial, registrar inspecciones en campo y combinar datos operativos con información comercial de gran volumen.
+            </p>
+            <div class="project-details">
+              <div><span>Problema</span><p>Datos dispersos, consultas lentas y trabajo de campo desconectado.</p></div>
+              <div><span>Solución</span><p>MapLibre + Supabase/PostGIS para GIS y FastAPI para datos comerciales pesados.</p></div>
+              <div><span>Decisión clave</span><p>Separar cargas operativas y transaccionales sin duplicar autenticación.</p></div>
             </div>
-            <div class="skill-card animatable delay-1" data-skill="JavaScript">
-              <div class="skill-icon">
-                <svg viewBox="0 0 24 24" fill="#f7df1e">
-                  <path
-                    d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"
-                  />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold">JavaScript</h3>
-            </div>
-            <div class="skill-card animatable delay-2" data-skill="Vue.js">
-              <div class="skill-icon">
-                <svg viewBox="0 0 24 24" fill="#4FC08D">
-                  <path
-                    d="M24,1.61H14.06L12,5.16,9.94,1.61H0L12,22.39ZM12,14.08,5.16,2.23H9.59L12,6.41l2.41-4.18h4.43Z"
-                  />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold">Vue.js</h3>
-            </div>
-            <div class="skill-card animatable delay-3" data-skill="Python">
-              <div class="skill-icon">
-                <svg viewBox="0 0 24 24" fill="#3EA4F8FF">
-                  <path
-                    d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"
-                  />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold">Python</h3>
-            </div>
-            <div class="skill-card animatable" data-skill="SQL Server">
-              <div class="skill-icon">
-                <svg
-                  viewBox="-1.61 0 70 70"
-                  xmlns:dc="http://purl.org/dc/elements/1.1/"
-                  xmlns:cc="http://creativecommons.org/ns#"
-                  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="#000000"
-                >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g
-                    id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <metadata>
-                      <rdf:rdf>
-                        <cc:work>
-                          <dc:subject> Data </dc:subject>
-                          <dc:identifier>
-                            sql-database-sql-azure
-                          </dc:identifier>
-                          <dc:title> SQL Database (SQL Azure) </dc:title>
-                          <dc:format> image/svg+xml </dc:format>
-                          <dc:publisher> Amido Limited </dc:publisher>
-                          <dc:creator> Richard Slater </dc:creator>
-                          <dc:type
-                            rdf:resource="http://purl.org/dc/dcmitype/StillImage"
-                          ></dc:type>
-                        </cc:work>
-                      </rdf:rdf>
-                    </metadata>
-                    <path
-                      d="m -68.256041,544.14439 c -3.2225,-0.64097 -6.0047,-2.84478 -7.3573,-5.82793 -0.595,-1.31236 -0.8482,-2.55217 -0.8438,-4.13316 0.012,-4.5438 2.8692,-8.33798 7.3079,-9.70579 0.8177,-0.25196 1.3573,-0.31847 2.611,-0.32182 0.8692,-0.002 1.8277,0.0437 2.1301,0.10227 l 0.5497,0.10649 0.6765,-1.31365 c 1.3815,-2.68242 3.5345,-4.78981 6.3178,-6.18379 2.2961,-1.15 3.739,-1.48443 6.4043,-1.48443 1.8668,0 2.2999,0.045 3.5043,0.36412 5.2011,1.37813 9.255,5.45998 10.5309,10.60353 0.3195,1.2879 0.4789,4.17568 0.293,5.30849 l -0.1269,0.77355 0.7284,0.163 c 1.8256,0.40854 3.4011,1.68396 4.2066,3.40532 0.7966,1.70226 0.6508,3.90495 -0.3651,5.51414 -0.5185,0.82136 -1.535,1.73424 -2.3832,2.14031 -0.4348,0.20813 -0.8979,0.43475 -1.0292,0.50361 -0.2947,0.15465 -32.3751,0.14085 -33.155,-0.0143 z m 33.351,-1.89876 c 0.9026,-0.44879 1.7953,-1.45217 2.1662,-2.43497 0.7697,-2.03891 -0.2571,-4.40792 -2.3055,-5.31934 -0.5173,-0.23017 -0.9037,-0.28342 -1.9824,-0.27321 -0.737,0.007 -1.3399,-0.0395 -1.3399,-0.10328 0,-0.0638 0.1369,-0.66194 0.3042,-1.32926 0.428,-1.70717 0.4237,-4.42927 -0.01,-6.09178 -0.9556,-3.66584 -3.4332,-6.72357 -6.8221,-8.4192 -1.4892,-0.74512 -2.9056,-1.08594 -4.841,-1.16493 -2.8639,-0.11687 -4.8633,0.33445 -7.0666,1.59507 -2.5693,1.47003 -4.784,4.13385 -5.6425,6.78661 -0.1651,0.51018 -0.3653,0.9268 -0.4449,0.92583 -0.08,-9.6e-4 -0.5467,-0.13408 -1.038,-0.29579 -1.3668,-0.44991 -3.6978,-0.42255 -5.0619,0.0594 -1.3731,0.48513 -2.3616,1.10694 -3.3908,2.13292 -1.5427,1.53788 -2.3996,3.63391 -2.3996,5.86959 0,3.32007 1.8288,6.23059 4.8041,7.64574 1.71,0.81331 1.1183,0.78892 18.4849,0.76186 l 15.941,-0.0248 0.6444,-0.32043 z m -45.9938,-6.42576 c -5.7671,-0.78155 -10.2061,-2.22963 -13.4896,-4.40056 -1.3548,-0.89576 -2.2902,-1.89766 -2.8176,-3.01787 l -0.3929,-0.83466 0.036,-22.59585 0.036,-22.59585 0.3281,-0.61562 c 0.8294,-1.55619 2.4465,-2.88407 5.0211,-4.12288 3.2554,-1.56646 7.0095,-2.54578 12.2408,-3.19328 2.1543,-0.26664 9.47,-0.21948 11.6809,0.0753 8.1415,1.08546 14.4594,3.74551 16.4734,6.93577 0.7936,1.25717 0.7731,0.80148 0.7731,17.22791 l 0,15.08135 -0.4466,0.0692 c -0.2456,0.038 -0.8021,0.10712 -1.2366,0.15352 -4.4834,0.47873 -9.1329,3.57818 -11.5162,7.67699 l -0.488,0.8391 -1.9169,0.0905 c -2.265,0.10697 -3.4191,0.39711 -5.1411,1.29243 -2.9567,1.53725 -5.0699,4.20232 -5.9316,7.48077 -0.238,0.90554 -0.3084,1.56192 -0.3132,2.92023 l -0.01,1.75213 -0.7594,-0.0162 c -0.4176,-0.009 -1.3777,-0.1 -2.1335,-0.20243 z m 11.7239,-20.8271 c -1.0818,-0.91805 -2.0174,-1.7137 -2.0791,-1.7681 -0.062,-0.0544 0.1631,-0.2602 0.4994,-0.45733 0.7458,-0.43708 1.7061,-1.48313 2.1139,-2.30274 0.9965,-2.00287 0.9743,-4.49403 -0.058,-6.47634 -1.135,-2.1802 -3.5103,-3.3239 -6.2014,-2.986 -1.4735,0.18503 -2.3966,0.59832 -3.3701,1.50899 -1.5366,1.4374 -2.0688,2.84774 -1.988,5.26837 0.046,1.37622 0.095,1.62372 0.4886,2.45901 0.8471,1.79787 2.6182,3.14163 4.4225,3.35531 0.6788,0.0804 0.7377,0.1249 2.0865,1.57538 l 1.3881,1.49264 2.3321,0 2.3322,0 -1.9669,-1.66919 z m -5.885,-4.6866 c -0.9451,-0.47951 -1.304,-1.30103 -1.304,-2.98527 0,-1.09589 0.053,-1.41584 0.3224,-1.96387 0.4309,-0.875 1.29,-1.40105 2.1328,-1.30604 0.829,0.0934 1.2599,0.42875 1.6984,1.32149 0.3327,0.67762 0.3808,0.93439 0.3769,2.01347 0,1.33108 -0.2403,2.01354 -0.9098,2.63622 -0.6994,0.65058 -1.42,0.73892 -2.3167,0.284 z m -9.5093,3.18974 c 2.485,-0.57319 3.8348,-2.65434 3.1192,-4.80889 -0.3603,-1.0849 -1.1219,-1.76252 -2.9819,-2.65327 -0.859,-0.41138 -1.6272,-0.83198 -1.7071,-0.93468 -0.3128,-0.40184 -0.3121,-0.66784 0,-1.03351 0.484,-0.56269 1.5858,-0.5896 3.0776,-0.0752 l 1.138,0.39245 -0.039,-1.51877 -0.039,-1.51878 -0.7558,-0.17965 c -1.143,-0.2717 -3.6136,-0.2584 -4.5856,0.0247 -1.949,0.56765 -2.976,1.84152 -2.9696,3.68323 0.01,1.89537 0.8605,2.79385 3.8676,4.06981 1.2722,0.53982 1.4179,1.54865 0.2807,1.94362 -0.5263,0.18278 -0.6761,0.17922 -1.5089,-0.0358 -0.5086,-0.13132 -1.2802,-0.42314 -1.7148,-0.64849 l -0.7902,-0.40974 0,1.64418 0,1.64418 0.7902,0.21996 c 0.4346,0.12098 0.852,0.2415 0.9276,0.26783 0.3141,0.10941 3.3435,0.0524 3.8879,-0.0732 z m 26.5512,-1.4376 0,-1.44294 -2.1988,0 -2.1987,0 0,-4.74107 0,-4.74107 -1.7865,0 -1.7865,0 0,6.18401 0,6.184 3.9853,0 3.9852,0 0,-1.44293 z m -10.5815,-24.74151 c 3.5835,-0.41532 6.5241,-1.16648 8.3827,-2.14132 1.2211,-0.64044 1.5139,-0.87116 1.9833,-1.56285 1.4515,-2.13894 -1.7987,-4.28958 -8.0986,-5.35876 -5.9187,-1.0045 -13.7186,-0.77727 -18.7108,0.54509 -10.3005,2.7285 -6.2399,7.74058 7.0717,8.7287 2.1847,0.16217 7.109,0.0514 9.3717,-0.21086 z"
-                      fill="#F59B15FF"
-                      transform="translate(97.599 -474.268)"
-                    ></path>
-                  </g>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold">SQL Server</h3>
-            </div>
-            <div class="skill-card animatable delay-1" data-skill="MySQL">
-              <div class="skill-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="#000000"
-                >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g
-                    id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <path
-                      fill="#00758F"
-                      fill-rule="evenodd"
-                      d="M5.46192862,4.04007684 C5.18892668,4.03501656 4.99575061,4.06967946 4.79169495,4.11446291 L4.79169495,4.15152944 L4.82901449,4.15152944 C4.95944313,4.41909158 5.18943271,4.591394 5.35034952,4.82188962 C5.47407329,5.08262038 5.59817658,5.34297163 5.72227987,5.60332288 C5.73493056,5.5909252 5.74745474,5.57865403 5.75959941,5.56625635 C5.99047454,5.40394797 6.0957283,5.14410275 6.09471625,4.74737704 C6.00211318,4.64996671 5.98832392,4.52826705 5.90837155,4.4122602 C5.80235875,4.25754224 5.59615247,4.17012595 5.46192862,4.04007684 L5.46192862,4.04007684 Z M23.478665,23.1369293 C23.6543831,23.2658398 23.772161,23.4657208 24,23.5466852 L24,23.5093657 C23.8800714,23.3573044 23.8495833,23.1474294 23.7395222,22.9880306 C23.5786054,22.8271138 23.4164236,22.6655645 23.2555068,22.5040152 C22.7821179,21.8759083 22.1818425,21.3245911 21.5432356,20.8663831 C21.0345512,20.5006515 19.8944709,20.0072745 19.6819392,19.4148426 C19.6697946,19.4021919 19.6571439,19.3896677 19.6444932,19.3770171 C20.0054174,19.3365348 20.4283301,19.2059797 20.7614228,19.1165393 C21.3210894,18.9665021 21.8214243,19.0054662 22.3990549,18.8560615 C22.6600387,18.781296 22.9203899,18.7066569 23.1808677,18.6329033 L23.1808677,18.4834987 C22.8887632,18.1836773 22.6805328,17.7869515 22.3622414,17.5155942 C21.5283078,16.8061434 20.6188495,16.0966926 19.6818127,15.5056522 C19.1626283,15.1774933 18.5200996,14.9645821 17.969415,14.6865199 C17.7842089,14.5931578 17.4590861,14.5444526 17.3365009,14.3887226 C17.0476856,14.0198284 16.8899314,13.5523853 16.6667732,13.1228943 C16.1997097,12.2230506 15.740363,11.2403448 15.3263059,10.293567 C15.044322,9.6481287 14.8597484,9.01154587 14.5076796,8.43227067 C12.8174206,5.65329311 10.9976185,3.97581132 8.17942382,2.3270466 C7.57927498,1.97649592 6.85742648,1.83809735 6.09471625,1.65719245 C5.68546635,1.6325236 5.27545742,1.60734872 4.86620752,1.58267987 C4.61635635,1.47831166 4.35651113,1.17267094 4.12184079,1.02427832 C3.18796669,0.434503045 0.792811133,-0.848656668 0.10157731,0.838313141 C-0.335124586,1.90286889 0.753847001,2.94174374 1.14361483,3.48142227 C1.4172493,3.85980447 1.76704094,4.2842352 1.96287366,4.70967798 C2.09127818,4.98938478 2.11316388,5.27010364 2.22385744,5.56600333 C2.49432924,6.29518923 2.7293791,7.08838764 3.07929725,7.76241652 C3.25653344,8.10322617 3.45173363,8.46263233 3.67539786,8.76738751 C3.81265788,8.95449125 4.04720171,9.03684725 4.08401522,9.32578906 C3.85465817,9.64749617 3.84150145,10.1466925 3.7125909,10.5541713 C3.13065906,12.3887747 3.35014857,14.6686824 4.19660638,16.0266077 C4.45594557,16.443195 5.06773305,17.3374725 5.90837155,16.9942592 C6.64375629,16.6946908 6.47980332,15.76613 6.69018433,14.9469976 C6.73749792,14.760906 6.70865434,14.624405 6.80176344,14.5003017 L6.80176344,14.5373682 C7.02542767,14.9840642 7.2488389,15.4307601 7.47199711,15.8773296 C7.96815726,16.6759678 8.84826592,17.5111665 9.59415073,18.0739958 C9.98037636,18.3659737 10.2848785,18.8709894 10.7852134,19.0419002 L10.7852134,19.0040746 L10.7478939,19.0040746 C10.6504835,18.8536579 10.4989282,18.790531 10.3759635,18.6694638 C10.0844916,18.3836847 9.76050733,18.0287063 9.51938514,17.7014329 C8.84080201,16.780589 8.24153872,15.7725818 7.69553484,14.7235864 C7.43455106,14.2224925 7.20785066,13.6697838 6.98785512,13.1600874 C6.90322199,12.9633691 6.90423404,12.6662043 6.72737736,12.5643663 C6.48650818,12.9378147 6.13190928,13.2401663 5.94556458,13.6811694 C5.64776729,14.386319 5.60943569,15.2461865 5.49899515,16.1379338 C5.43371758,16.1614641 5.46268766,16.1453977 5.42422956,16.1750003 C4.90555118,16.0502645 4.72350772,15.5164053 4.53096418,15.0584502 C4.04378602,13.9006589 3.95333357,12.0360734 4.38206553,10.7030699 C4.4930121,10.3583386 4.99499157,9.27202362 4.79131543,8.95347919 C4.69441112,8.63544079 4.37510765,8.45187925 4.19635337,8.20885945 C3.97420721,7.90853201 3.75332613,7.5134509 3.59974672,7.16644241 C3.20150293,6.26368901 3.01528474,5.25024206 2.59540827,4.33749461 C2.39451528,3.90142525 2.0550972,3.45966308 1.77627595,3.07166635 C1.46759906,2.64204884 1.12185564,2.32578153 0.882884062,1.80583808 C0.797744903,1.62126448 0.681991069,1.32587082 0.808244978,1.13598393 C0.848094658,1.00783242 0.905022773,0.954446496 1.03190922,0.912572704 C1.24810955,0.746089595 1.84889092,0.967982736 2.07394674,1.06147135 C2.67055338,1.30929841 3.16924367,1.54548684 3.67489184,1.88035066 C3.91740561,2.04126747 4.16295554,2.35272751 4.45607208,2.43887872 L4.79118892,2.43887872 C5.31568662,2.5591868 5.90280525,2.47645128 6.39200751,2.62509691 C7.25744137,2.8881048 8.0329288,3.29722819 8.73719284,3.74202653 C10.8826237,5.09653615 12.6370217,7.02526068 13.8370664,9.32578906 C14.030116,9.69620133 14.1138635,10.0496617 14.2836358,10.4427187 C14.6265961,11.2350315 15.0591233,12.0501156 15.4004389,12.825097 C15.7408691,13.5978013 16.0728232,14.3779695 16.5541821,15.0213837 C16.8071959,15.3594102 17.7850944,15.5408211 18.2297663,15.7288104 C18.5412263,15.8602511 19.0514287,15.9976376 19.3460633,16.1750003 C19.9100312,16.5151775 20.4556556,16.9197466 20.9842015,17.292183 C21.2483479,17.4785277 22.0606489,17.886639 22.1006251,18.2223884 C20.7916579,18.1877255 19.7916207,18.3092986 18.9366869,18.6695903 C18.6936671,18.7716814 18.3064295,18.7747176 18.2664533,19.0787137 C18.4000446,19.2186304 18.4211712,19.4281259 18.527437,19.6000488 C18.7309867,19.9304848 19.0755915,20.3728795 19.3833829,20.6053993 C19.7195118,20.8590456 20.0657612,21.130403 20.4255469,21.3498925 C21.0663045,21.7407989 21.7818276,21.9638306 22.3984224,22.3551165 C22.7632683,22.5861182 23.1241926,22.8764515 23.478665,23.1369293 L23.478665,23.1369293 Z"
-                    ></path>
-                  </g>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold">MySQL</h3>
-            </div>
-            <div class="skill-card animatable delay-2" data-skill="Supabase">
-              <div class="skill-icon">
-                <svg viewBox="0 0 24 24" fill="#3ECF8E">
-                  <path
-                    d="M21.362 9.354H12V.396a.396.396 0 0 0-.716-.233L2.203 12.424l-.401.562a1.04 1.04 0 0 0 .836 1.659H12v8.959a.396.396 0 0 0 .716.233l9.081-12.261.401-.562a1.04 1.04 0 0 0-.836-1.66z"
-                  />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold">Supabase</h3>
-            </div>
-            <div class="skill-card animatable delay-3" data-skill="VB.NET">
-              <div class="skill-icon">
-                <svg viewBox="0 0 24 24" fill="#512BD4">
-                  <path
-                    d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0z"
-                  />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold">VB.NET</h3>
-            </div>
+            <div class="tags"><span>React</span><span>React Native</span><span>FastAPI</span><span>Supabase</span><span>PostGIS</span><span>MapLibre</span></div>
           </div>
-        </section>
-
-        <!-- Sección de Proyectos -->
-        <section id="projects" class="py-20">
-          <h2
-            class="text-4xl font-bold mb-12 text-center section-title animatable"
-          >
-            Mis Proyectos
-          </h2>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 projects-grid">
-            <div class="project-card neon-card animatable">
-              <div class="project-image">
-                <img
-                  src="./images/dashboardcolegio.png"
-                  alt="Vista previa del Proyecto 1"
-                  class="w-full h-48 object-cover"
-                />
-                <div class="project-overlay">
-                  <div class="project-links">
-                    <a href="#" class="project-link">Ver Demo</a>
-                    <a href="#" class="project-link">GitHub</a>
-                  </div>
-                </div>
-              </div>
-              <div class="p-6">
-                <h3 class="text-2xl font-bold mb-2 project-title">
-                  Sistema para Gestión del Colegio Sigma
-                </h3>
-                <p class="text-gray-400 mb-4">
-                  Aplicación completa para la gestión de alumnos, areas, salones, cursos, notificaciones, etc.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-4 tech-tags">
-                  <span class="tech-tag">C#</span>
-                  <span class="tech-tag">SQL Server</span>
-                  <span class="tech-tag">.NET</span>
-                  <span class="tech-tag">Vue Js</span>
-                  <span class="tech-tag">DevExtreme</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-card neon-card animatable delay-1">
-              <div class="project-image">
-                <img
-                  src="./images/colegio.png"
-                  alt="Vista previa del Proyecto 2"
-                  class="w-full h-48 object-cover"
-                />
-                <div class="project-overlay">
-                  <div class="project-links">
-                    <a href="#" class="project-link">Ver Demo</a>
-                    <a href="#" class="project-link">GitHub</a>
-                  </div>
-                </div>
-              </div>
-              <div class="p-6">
-                <h3 class="text-2xl font-bold mb-2 project-title">
-                  Modulo de Talento Humano
-                </h3>
-                <p class="text-gray-400 mb-4">
-                  Control y gestión de personal, asistencia, tardanzas, memorandums, planilla , etc.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-4 tech-tags">
-                  <span class="tech-tag">Vue.js</span>
-                  <span class="tech-tag">JavaScript</span>
-                  <span class="tech-tag">Vuetify</span>
-                  <span class="tech-tag">DevExtreme</span>
-                  <span class="tech-tag">Quasar</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-card neon-card animatable delay-2">
-              <div class="project-image">
-                <img
-                  src="./images/api.png"
-                  alt="Vista previa del Proyecto 3"
-                  class="w-full h-48 object-cover"
-                />
-                <div class="project-overlay">
-                  <div class="project-links">
-                    <a href="#" class="project-link">Ver Demo</a>
-                    <a href="#" class="project-link">GitHub</a>
-                  </div>
-                </div>
-              </div>
-              <div class="p-6">
-                <h3 class="text-2xl font-bold mb-2 project-title">
-                  API de Sistema con C# y .NET 7 
-                </h3>
-                <p class="text-gray-400 mb-4">
-                  API RESTful para la gestion de un ERP, usando reportes dinamico de DevExpress.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-4 tech-tags">
-                  <span class="tech-tag">C#</span>
-                  <span class="tech-tag">SQL</span>
-                  <span class="tech-tag">ADO.net</span>
-                  <span class="tech-tag">DevExpress</span>
-                  <span class="tech-tag">.NET</span>
-                </div>
-              </div>
-            </div>
+          <div class="project-visual map-visual" aria-label="Representación de una plataforma GIS">
+            <div class="map-grid"></div><i class="pin p1"></i><i class="pin p2"></i><i class="pin p3"></i>
+            <div class="map-card"><small>Suministros activos</small><strong>128,450</strong><span>+3.8% este mes</span></div>
           </div>
-        </section>
+        </article>
 
-        <!-- Sección de Contacto -->
-        <section id="contact" class="text-center py-20">
-          <h2 class="text-4xl font-bold mb-4 animatable section-title">
-            Hablemos
-          </h2>
-          <p
-            class="text-lg text-gray-400 max-w-2xl mx-auto mb-8 animatable delay-1"
-          >
-            Estoy abierto a nuevas oportunidades y colaboraciones. Si tienes
-            alguna pregunta, no dudes en contactarme.
-          </p>
-          <div
-            class="flex justify-center items-center space-x-6 animatable delay-2 contact-links"
-          >
-            <a href="mailto:cesarfmiranda0@gmail.com" class="contact-button">
-              Enviar un Email
-            </a>
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div class="project-number">02</div>
+            <p class="project-type">Sistema interno de operaciones</p>
+            <h3>Órdenes de trabajo con trazabilidad documental</h3>
+            <p>Gestión de clientes, servicios, responsables, evidencias, procesos y reportes, con reglas de negocio centralizadas y generación automática de códigos.</p>
+            <div class="tags"><span>C#</span><span>SQL Server</span><span>DevExpress</span><span>APIs REST</span></div>
+            <ul class="outcomes"><li>Reglas de negocio explícitas</li><li>Seguimiento de documentos y procesos</li><li>Integración con mesa de ayuda</li></ul>
+          </article>
 
-            <a
-              href="https://www.linkedin.com/in/cesar-flores-miranda-259244141/"
-              target="_blank"
-              class="social-link"
-            >
-              <svg class="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                />
-              </svg>
-            </a>
-          </div>
-        </section>
-      </main>
+          <article class="project-card reveal">
+            <div class="project-number">03</div>
+            <p class="project-type">IA aplicada a bases de datos</p>
+            <h3>Asistente de consultas SQL con auditoría y seguridad</h3>
+            <p>Agente orientado a responder preguntas sobre datos empresariales, controlar consultas generadas, registrar cada ejecución y evitar operaciones peligrosas.</p>
+            <div class="tags"><span>Python</span><span>PostgreSQL</span><span>LLM</span><span>RAG</span><span>Auditoría</span></div>
+            <ul class="outcomes"><li>Consultas de solo lectura</li><li>Registro completo de prompts y SQL</li><li>Validación antes de ejecutar</li></ul>
+          </article>
+        </div>
+      </section>
 
-      <footer class="text-center py-6 border-t border-gray-700">
-        <p class="text-gray-500">
-          &copy; <span id="year"></span> Tu Nombre. Todos los derechos
-          reservados.
-        </p>
-      </footer>
-    </div>
+      <section class="section process reveal" id="experiencia">
+        <p class="eyebrow">Cómo trabajo</p>
+        <div class="section-heading">
+          <h2>Ingeniería antes que decoración.</h2>
+          <p>Me gusta partir del proceso real, definir responsabilidades y recién después elegir tecnología. Lo clásico sigue funcionando: entender, diseñar, construir, validar.</p>
+        </div>
+        <div class="process-grid">
+          <article><span>01</span><h3>Entender</h3><p>Mapeo usuarios, reglas, excepciones, datos críticos y riesgos.</p></article>
+          <article><span>02</span><h3>Diseñar</h3><p>Defino arquitectura, contratos, modelo de datos y límites claros.</p></article>
+          <article><span>03</span><h3>Construir</h3><p>Implemento por módulos, con código legible y decisiones documentadas.</p></article>
+          <article><span>04</span><h3>Validar</h3><p>Pruebo casos reales, rendimiento, seguridad y experiencia de uso.</p></article>
+        </div>
+      </section>
 
-    <!-- Modal for errors -->
-    <div
-      id="error-modal"
-      class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden"
-    >
-      <div
-        class="bg-gray-800 rounded-lg p-8 max-w-sm w-full text-center shadow-lg error-modal"
-      >
-        <h3 class="text-2xl font-bold text-red-500 mb-4">Error</h3>
-        <p id="error-message" class="text-gray-300 mb-6"></p>
-        <button
-          onclick="document.getElementById('error-modal').classList.add('hidden')"
-          class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg"
-        >
-          Cerrar
-        </button>
-      </div>
-    </div>
+      <section class="section stack reveal">
+        <p class="eyebrow">Stack principal</p>
+        <div class="stack-groups">
+          <div><h3>Backend</h3><p>C#, .NET, Python, FastAPI, Node.js, APIs REST, JWT</p></div>
+          <div><h3>Frontend</h3><p>Vue.js, React, React Native, JavaScript, TypeScript, Tailwind</p></div>
+          <div><h3>Datos</h3><p>PostgreSQL, SQL Server, Supabase, PostGIS, modelado y optimización SQL</p></div>
+          <div><h3>Ingeniería</h3><p>Git, arquitectura modular, auditoría, integración, automatización y documentación</p></div>
+        </div>
+      </section>
+
+      <section class="contact section reveal" id="contacto">
+        <p class="eyebrow">Contacto</p>
+        <h2>¿Tienes un proceso complejo que necesita convertirse en software claro?</h2>
+        <p>Estoy abierto a colaborar en proyectos remotos de desarrollo, integración, automatización y plataformas de datos.</p>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:cesarfmiranda0@gmail.com">cesarfmiranda0@gmail.com</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/cesar-flores-miranda-259244141/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> Cesar Flores</span>
+      <span>Software con propósito, datos con criterio.</span>
+    </footer>
 
     <script src="script.js"></script>
   </body>
