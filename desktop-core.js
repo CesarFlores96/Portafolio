@@ -1,0 +1,36 @@
+(() => {
+  const windows = Array.from(document.querySelectorAll('.window'));
+  const dockButtons = Array.from(document.querySelectorAll('.dock-item[data-open]'));
+  const menuTriggers = Array.from(document.querySelectorAll('.menu-trigger[data-menu]'));
+  const menuPopovers = Array.from(document.querySelectorAll('.menu-popover'));
+  const projectCards = Array.from(document.querySelectorAll('.project-item'));
+  const projectCount = document.getElementById('project-count');
+  const clock = document.getElementById('menu-clock');
+  let zIndex = 40;
+  const getWindow = name => document.querySelector(`[data-window="${name}"]`);
+  const closeMenus = () => { menuPopovers.forEach(menu => menu.classList.remove('is-open')); menuTriggers.forEach(trigger => trigger.setAttribute('aria-expanded','false')); };
+  const updateDock = () => { dockButtons.forEach(button => { const win=getWindow(button.dataset.open); const indicator=button.querySelector('.dock-indicator'); if(!indicator||!win)return; indicator.classList.toggle('active',!win.classList.contains('is-hidden')&&!win.classList.contains('is-minimized')); }); };
+  const focusWindow = win => { zIndex+=1; windows.forEach(item=>item.classList.remove('active-window')); win.style.zIndex=String(zIndex); win.classList.add('active-window'); };
+  const openWindow = name => { const win=getWindow(name); if(!win)return; win.classList.remove('is-hidden','is-minimized','is-closing'); win.classList.add('is-opening'); focusWindow(win); setTimeout(()=>win.classList.remove('is-opening'),150); updateDock(); closeMenus(); };
+  const closeWindow = win => { win.classList.add('is-closing'); setTimeout(()=>{ win.classList.add('is-hidden'); win.classList.remove('is-closing','is-minimized','is-maximized'); updateDock(); },120); };
+  const minimizeWindow = win => { win.classList.add('is-minimized'); setTimeout(updateDock,90); };
+  const maximizeWindow = win => { win.classList.toggle('is-maximized'); focusWindow(win); };
+  document.querySelectorAll('[data-open]').forEach(control=>control.addEventListener('click',event=>{ if(control.tagName==='A')return; event.preventDefault(); openWindow(control.dataset.open); }));
+  windows.forEach(win=>{
+    win.addEventListener('pointerdown',()=>focusWindow(win));
+    win.querySelectorAll('[data-window-action]').forEach(button=>button.addEventListener('click',event=>{ event.stopPropagation(); const action=button.dataset.windowAction; if(action==='close')closeWindow(win); if(action==='minimize')minimizeWindow(win); if(action==='maximize')maximizeWindow(win); }));
+    const handle=win.querySelector('.drag-handle'); if(!handle)return;
+    let drag=null,frame=0;
+    const paint=()=>{ frame=0; if(!drag)return; win.style.transform=`translate3d(${drag.x-drag.originX}px,${drag.y-drag.originY}px,0)`; };
+    const finish=event=>{ if(!drag)return; if(frame)cancelAnimationFrame(frame); win.style.left=`${drag.x}px`; win.style.top=`${drag.y}px`; win.style.transform='none'; drag=null; if(handle.hasPointerCapture(event.pointerId))handle.releasePointerCapture(event.pointerId); win.classList.remove('is-dragging'); };
+    handle.addEventListener('pointerdown',event=>{ if(event.target.closest('button')||innerWidth<=820||win.classList.contains('is-maximized'))return; event.preventDefault(); const rect=win.getBoundingClientRect(); drag={id:event.pointerId,dx:event.clientX-rect.left,dy:event.clientY-rect.top,originX:rect.left,originY:rect.top,x:rect.left,y:rect.top,width:rect.width}; win.style.left=`${rect.left}px`; win.style.top=`${rect.top}px`; win.style.transform='none'; win.classList.add('is-dragging'); handle.setPointerCapture(event.pointerId); });
+    handle.addEventListener('pointermove',event=>{ if(!drag||event.pointerId!==drag.id)return; drag.x=Math.min(Math.max(8,event.clientX-drag.dx),Math.max(8,innerWidth-drag.width-8)); drag.y=Math.min(Math.max(8,event.clientY-drag.dy),Math.max(8,innerHeight-120)); if(!frame)frame=requestAnimationFrame(paint); });
+    handle.addEventListener('pointerup',finish); handle.addEventListener('pointercancel',finish); handle.addEventListener('dblclick',event=>{ if(!event.target.closest('button'))maximizeWindow(win); });
+  });
+  menuTriggers.forEach(trigger=>trigger.addEventListener('click',event=>{ event.stopPropagation(); const menu=document.getElementById(trigger.dataset.menu); const wasOpen=menu?.classList.contains('is-open'); closeMenus(); if(!menu||wasOpen)return; menu.style.left=`${Math.max(4,trigger.getBoundingClientRect().left)}px`; menu.classList.add('is-open'); trigger.setAttribute('aria-expanded','true'); }));
+  document.addEventListener('click',event=>{ if(!event.target.closest('.menu-popover')&&!event.target.closest('.menu-trigger'))closeMenus(); });
+  document.querySelectorAll('[data-action]').forEach(control=>control.addEventListener('click',()=>{ if(control.dataset.action==='show-all')['about','projects','ai','stack','contact'].forEach(openWindow); if(control.dataset.action==='minimize-all')windows.forEach(item=>!item.classList.contains('is-hidden')&&minimizeWindow(item)); if(control.dataset.action==='close-all')windows.forEach(item=>!item.classList.contains('is-hidden')&&closeWindow(item)); closeMenus(); }));
+  document.querySelectorAll('.filter-button').forEach(button=>button.addEventListener('click',()=>{ const filter=button.dataset.filter; document.querySelectorAll('.filter-button').forEach(item=>item.classList.toggle('active',item===button)); let visible=0; projectCards.forEach(card=>{ const show=filter==='all'||(card.dataset.category||'').split(' ').includes(filter); card.classList.toggle('is-filtered-out',!show); if(show)visible+=1; }); if(projectCount)projectCount.textContent=`${visible} ${visible===1?'elemento':'elementos'}`; }));
+  const updateClock=()=>{ if(!clock)return; clock.textContent=new Intl.DateTimeFormat('es-PE',{weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date()); };
+  updateClock(); setInterval(updateClock,30000); updateDock();
+})();
